@@ -18,7 +18,8 @@ class Calculator():
             bg="grey30",
             highlightbackground="grey15",
             highlightthickness=1,
-            bd=0
+            bd=0,
+            state=tk.DISABLED
         )
         self.pastCalcBox.pack()
 
@@ -27,6 +28,49 @@ class Calculator():
             self.root,
             height=3,
             width=100,
-            bg="grey20"
+            bg="grey22",
+            bd=0
         )
         self.calcDisplay.pack()
+
+        # Calculator Buttons
+        self.backspaceBtn = tk.Button(
+            self.root,
+            text="⌫"
+        )
+        self.backspaceBtn.grid(
+            row=0,
+            column=0
+        )
+        self.openBtn = tk.Button(
+            self.root,
+            text="("
+        )
+        self.openBtn.grid(
+            row=0,
+            column=1
+        )
+        self.clsoeBtn = tk.Button(
+            self.root,
+            text=")"
+        )
+        self.clsoeBtn.grid(
+            row=0,
+            column=2
+        )
+        self.modBtn = tk.Button(
+            self.root,
+            text="mod"
+        )
+        self.modBtn.grid(
+            row=0,
+            column=3
+        )
+        self.piBtn = tk.Button(
+            self.root,
+            text="Π"
+        )
+        self.piBtn.grid(
+            row=0,
+            column=4
+        )
