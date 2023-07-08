@@ -73,6 +73,8 @@ class Calculator():
 
         self.createKeypad()
 
+        self.bindKeys()
+
     def createKeypad(self):
         # creating Calculator Buttons
         # frame for all the buttons in keypad
@@ -284,6 +286,8 @@ class Calculator():
 
     def evaluateExpression(self):
         original_exp = self.evalDisplay["text"]
+        if original_exp == "":
+            return
         edited_exp = original_exp.replace("Π", "3.141592654").replace("÷", "/").replace("x", "*").replace("%", "/100").replace("²", "**2").replace("mod", "%")
         if "√" in edited_exp:
             edited_exp = edited_exp.replace("√", "+math.sqrt(") + ")"
@@ -341,3 +345,20 @@ class Calculator():
             self.malCalcLabel.config(text="Malformed expression")
         finally:
             print(self.YELLOW + "------------------------------" + self.RESET)
+
+    def bindKeys(self):
+        self.root.bind("<Key>", self.handle_key_input)
+        self.root.bind("<Return>", self.handle_key_input)
+    
+    def handle_key_input(self, event):
+        inputkey = event.char
+        if inputkey == "\r":
+            self.evaluateExpression()
+        if inputkey.isdigit() or inputkey == "(" or inputkey == ")" or inputkey == "+" or inputkey == "-" or inputkey == ".":
+            self.OperandBtnClick(inputkey)
+        elif inputkey == "*":
+            self.OperandBtnClick("x")
+        elif inputkey == "/":
+            self.OperandBtnClick("\u00F7")        
+        elif inputkey == "\b":
+            self.onBackSpace()
