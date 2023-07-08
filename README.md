@@ -7,4 +7,4 @@ PyCalculator is my attempt to create a python version of ubuntu calculator
 3. Run ```~$ python main.py```
 
 ## Calculator Screenshot
-![Py Calculator](./icon/output_screenshot.png)
+![Py Calculator](icon/output_screenshot.png)
