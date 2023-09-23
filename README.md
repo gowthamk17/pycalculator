@@ -1,5 +1,5 @@
 # pycalculator
-PyCalculator is my attempt to create a python version of ubuntu calculator
+PyCalculator is my attempt to create a ubuntu calculator with python tkinter
 
 ## Step for running
 1. Checkout the repo in local
